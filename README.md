@@ -1,3 +1,3 @@
-### Battleship ###
+# Battleship #
 
 Projekt für ITP
