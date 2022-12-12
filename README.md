@@ -1,5 +1,5 @@
 # Battleship #
 
 Projekt für ITP
-Zeitplan
+Zeitplan <br>
 ( Excel tablle mit unseren zeiten verlink )
