@@ -1,0 +1,221 @@
+/* keyboard.css */
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #2187b0;
+  font-family: 'Raleway', sans-serif;
+  color: whitesmoke;
+}
+
+h2 {
+  font-size: xx-large;
+  text-align: center;
+}
+
+#icon{
+  width: 3%;
+  margin: 0;
+  display: block;
+  position: absolute;
+}
+
+#mainSprite {
+  display: block;
+}
+
+
+
+#surface {
+  background-color: rgba(88, 86, 86, 0.753);
+  border: 5px solid rgba(228, 225, 225, 0.37);
+  height: 450px;
+  width: 550px;
+  color: #fff; 
+  float: left;
+  display: flex;
+  margin-top: 5vh;
+}
+
+#surface2 {
+  background-color: rgba(88, 86, 86, 0.753);
+  border: 5px solid rgba(228, 225, 225, 0.37);
+  height: 450px;
+  width: 550px;
+  color: #fff; 
+  float: right;
+  display: flex;
+  margin-top: 5vh;
+  margin-right: 0;
+}
+
+#sprite {
+  position: absolute;
+  width: 55px; /* ANPASSEN! Testen und im Browser/Entwicklerumgebung analysieren */
+  height: 60px;
+  overflow: hidden;
+}
+
+#spriteImg {
+  height: 250px; /* ANPASSEN! 150 = 6*25 (25->Containerhöhe, 6->Zeilen im PNG) */
+  position: relative;
+  bottom: 9.75px;
+}
+
+#output {
+  text-align: right;
+  margin-left: 43vw;
+  margin-bottom: 0;
+}
+
+#counter {
+  margin-top: 3vh;
+}
+
+#duration{
+  margin-top: 2vh;
+  font-size: medium;
+}
+
+#icon{
+  width: 2.5vw;
+  height: 2.5vw;
+  margin: 0;
+  display: block;
+  position: absolute;
+}
+
+#spriteImg1 {
+  width: 2.5vw;
+  height: 2.5vw;
+  background-image: url("./img/icon32.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  animation: ghostAnimation 5s linear 0s infinite;
+}
+
+
+@keyframes ghostAnimation {
+  0% { background-image: url("./img/icon30.png"); }
+  50% { background-image: url("./img/icon34.png"); }
+}
+
+#login {
+  background-color: rgba(78, 78, 78, 0.753);
+  border: 5px solid rgba(58, 39, 39, 0.37);
+  height: 400px;
+  width: 500px;
+  position: relative;
+  color: #fff; 
+}
+
+/* Button */
+.wrapper{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.wrapper2{
+  position: fixed;
+  top: 50%;
+  left: 42%;
+  transform: translate(-50%, -50%);
+}
+
+.wrapper3{
+  position: fixed;
+  top: 50%;
+  left: 58%;
+  transform: translate(-50%, -50%);
+}
+
+a{
+  display: block;
+  width: 200px;
+  height: 40px;
+  font-weight: 600;
+  line-height: 40px;
+  font-size: 18px;
+  font-family: 'Raleway', sans-serif;
+  text-decoration: none;
+  color: rgb(231, 231, 231);
+  border: 2px solid rgb(167, 166, 166);
+  letter-spacing: 2px;
+  text-align: center;
+  position: relative;
+  transition: all .35s;
+}
+
+a span{
+  position: relative;
+  z-index: 2;
+}
+
+a:after{
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #363535;
+  transition: all .35s;
+}
+
+a:hover{
+  color: #fff;
+}
+
+a:hover:after{
+  width: 100%;
+}
+
+#name {
+  background-color: #363535;
+  position: fixed;
+  border: 2px solid rgb(167, 166, 166);
+  letter-spacing: 2px;
+  text-align: center;
+  color: rgb(231, 231, 231);
+  width: 200px;
+  height: 40px;
+  font-size: 15px;
+}
+
+#password {
+  background-color: #363535;
+  position: fixed;
+  border: 2px solid rgb(167, 166, 166);
+  letter-spacing: 2px;
+  text-align: center;
+  color: rgb(231, 231, 231);
+  width: 200px;
+  height: 40px;
+  font-size: 15px;
+}
+
+#test {
+  position: relative;
+  font-size: smaller;
+}
+
+/* Highscore */
+table {
+  background-color: #36353586;
+  text-align: center;
+  position: relative;
+  table-layout: fixed;
+  margin-left: 1%;
+  width: 98%;
+}
+
+tfoot {
+  background-color: #F7F1D4;
+  font-size: 80%;
+}
+
+td, th {
+  text-align: ce;
+  padding: 0.5em 1em;
+}
