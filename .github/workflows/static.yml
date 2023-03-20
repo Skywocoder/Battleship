@@ -25,7 +25,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ ./Battleship/index.html}}
+      url: ${{ ./Battleship/Schifffeversenken/}}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
