@@ -1,1 +1,0 @@
-let Playfield = [10][10];
