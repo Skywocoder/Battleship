@@ -1,0 +1,49 @@
+@font-face {
+    font-family: besty;
+    src: url(../fonts/Besty.ttf);
+}
+
+body, button{
+    font-family: besty;
+    margin: 0;
+    text-align: center;
+}
+
+/* HTML TAGS */
+h1{
+    font-size: 5em;
+    margin-bottom: 0;
+    padding-bottom: 1%;
+}
+
+
+/*CLASSES UND IDS */
+
+
+
+/* BUTTONS */
+
+.btn {
+    width: 12rem;
+    height: 3rem;
+    border-radius: 1rem;   
+    cursor: pointer;
+    transition: .3s ease;
+    background-color: rgb(128, 128, 201); 
+    color: rgb(0, 0, 0);
+}
+
+#btnLogin{
+    margin-bottom: 1%;
+}
+
+#game{
+    margin-top: 1%;
+    border-color: black;
+    border-style: double;
+    padding: 15%;
+    margin-left: 15vh;
+    margin-right: 15vh;
+}
+
+
