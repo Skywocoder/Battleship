@@ -1,5 +1,6 @@
 /* keyboard.css */
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   font-family: 'Raleway', sans-serif;
@@ -22,7 +23,7 @@ h2 {
   text-align: center;
 }
 
-.flex-container > div {
+.flex-container>div {
   margin: 1vh;
   font-size: 3vw;
 }
@@ -35,9 +36,9 @@ h2 {
   width: 32vw;
   color: rgb(0, 0, 0);
   float: left;
-  display: grid; 
-  grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%; 
-  grid-template-columns:10% 10% 10% 10% 10% 10% 10% 10% 10% 10%; 
+  display: grid;
+  grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+  grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
   margin-top: 5vh;
 }
 
@@ -53,9 +54,9 @@ h2 {
   width: 32vw;
   color: rgb(0, 0, 0);
   float: right;
-  display: grid; 
-  grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%; 
-  grid-template-columns:10% 10% 10% 10% 10% 10% 10% 10% 10% 10%; 
+  display: grid;
+  grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+  grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
   margin-top: 5vh;
   margin-right: 0;
 }
@@ -81,4 +82,20 @@ h2 {
   float: left;
   margin-left: 5vw;
   margin-top: 5vh;
+}
+
+img {
+  z-index: 1;
+}
+
+#display {
+  position: absolute;
+  left: 42%;
+  transform: translate(-50%, -50%);
+  width: 50vw;
+  display: flex;
+  font-family: Arial, sans-serif;
+  font-size: 1vw;
+  color: white;
+  transform: 2s;
 }

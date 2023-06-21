@@ -1,0 +1,50 @@
+switch (blocks) {
+
+        case 2:
+            if (ship2 != 0) {
+
+            } else {
+                console.log("Du kannst kein Schiff dieser Größe mehr platzieren.");
+            }
+
+            break;
+        case 3:
+            if (ship3 != 0) {
+
+            } else {
+                console.log("Du kannst kein Schiff dieser Größe mehr platzieren.");
+            }
+
+            break;
+        case 4:
+            if (ship4 != 0) {
+
+            } else {
+                console.log("Du kannst kein Schiff dieser Größe mehr platzieren.");
+            }
+
+            break;
+        case 5:
+            if (ship5 != 0) {
+
+            } else {
+                console.log("Du kannst kein Schiff dieser Größe mehr platzieren.");
+            }
+
+            break;
+    }
+	
+	
+	if (stacked) {
+        let largerOne = max(first, second);
+        let smallerOne = min(first, second);
+
+        currArray.push(smallerOne);
+        while (smallerOne != largerOne) {
+            smallerOne += 10;
+            currArray.push(smallerOne);
+        }
+        currArray.push(largerOne);
+    } else {
+
+    }
