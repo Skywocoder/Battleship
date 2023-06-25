@@ -15,6 +15,22 @@ let size4_ship1 = [];
 let size4_ship2 = [];
 let size5_ship1 = [];
 
+
+
+
+
+
+
+
+
+
+
+let isPlayerTurn = true;
+let BotalreadyHIt = false;
+
+let fieldHasBeenShot = [];
+let gegnerischeSchiffe = [];
+
 document.addEventListener('DOMContentLoaded', function () {
     let surface = document.getElementById('surface');
     let surfaceContent = "";
@@ -24,6 +40,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     surface.innerHTML = surfaceContent;
+
+    clicky();
+
+    gegnerischeSchiffe = generiereGegnerischeSchiffe();
+    console.log(gegnerischeSchiffe);
 });
 
 
@@ -54,12 +75,20 @@ function select(event) {
 
 function select2(event) {
     let elementId = event.target.id;
-
     document.getElementById(elementId).style.backgroundColor = "grey";
-    gotHit(elementId);
-    setTimeout(function () {
-        document.getElementById(elementId).style.backgroundColor = "";
-    }, 200);
+    console.log("grey")
+    setTimeout(100);
+    if( gotHit(elementId) == true){
+        console.log(gotHit(elementId) + " RETURN OF GOTHIT FUNCTION");
+        document.getElementById(elementId).style.backgroundColor = "red";
+        console.log("HIT")
+    }else{
+        console.log(gotHit(elementId) + " RETURN OF GOTHIT FUNCTION");
+        document.getElementById(elementId).style.backgroundColor = "purple";
+        botHit();
+        console.log("DUb")
+    }
+    
 }
 
 function validation() {
@@ -148,13 +177,16 @@ function placing() {
         case 2:
             if (size2_ship1.length == 0) {
                 size2_ship1 = currArray;
+                console.log(currArray);
                 element.innerHTML = '<img src="../../Schiffmodelle/U-Boot1-2er.png" alt="noSource" height="48vw">';
             } else if (size2_ship2.length == 0) {
                 element.innerHTML = '<img src="../../Schiffmodelle/U-Boot2-2er.png" alt="noSource" height="48vw">';
                 size2_ship2 = currArray;
+                console.log(currArray);
             } else if (size2_ship3.length == 0) {
                 element.innerHTML = '<img src="../../Schiffmodelle/U-Boot1-2er.png" alt="noSource" height="48vw">';
                 size2_ship3 = currArray;
+                console.log(currArray);
             } else if (size2_ship4.length == 0) {
                 element.innerHTML = '<img src="../../Schiffmodelle/U-Boot2-2er.png" alt="noSource" height="48vw">';
                 size2_ship4 = currArray;
@@ -168,12 +200,15 @@ function placing() {
             if (size3_ship1.length == 0) {
                 element.innerHTML = '<img src="../../Schiffmodelle/Zerstörer1-3er.png" alt="noSource" height="48vw">';
                 size3_ship1 = currArray;
+                console.log(currArray);
             } else if (size3_ship2.length == 0) {
                 element.innerHTML = '<img src="../../Schiffmodelle/Zerstörer2-3er.png" alt="noSource" height="48vw">';
                 size3_ship2 = currArray;
+                console.log(currArray);
             } else if (size3_ship3.length == 0) {
                 element.innerHTML = '<img src="../../Schiffmodelle/Zerstörer1-3er.png" alt="noSource" height="48vw">';
                 size3_ship3 = currArray;
+                console.log(currArray);
             } else {
                 document.getElementById(slot1).style.backgroundColor = "rgba(156, 23, 37,0.753)";
                 document.getElementById(slot2).style.backgroundColor = "rgba(156, 23, 37,0.753)";
@@ -187,6 +222,7 @@ function placing() {
             } else if (size4_ship2.length == 0) {
                 element.innerHTML = '<img src="../../Schiffmodelle/Flaggschiff2-4er.png" alt="noSource" height="48vw">';
                 size4_ship2 = currArray;
+                console.log(currArray);
             } else {
                 document.getElementById(slot1).style.backgroundColor = "rgba(156, 23, 37,0.753)";
                 document.getElementById(slot2).style.backgroundColor = "rgba(156, 23, 37,0.753)";
@@ -197,6 +233,7 @@ function placing() {
             if (size5_ship1.length == 0) {
                 element.innerHTML = '<img src="../../Schiffmodelle/Flugzeugträger1-5er.png" alt="noSource" height="60vw">';
                 size5_ship1 = currArray;
+                console.log(currArray);
             } else {
                 document.getElementById(slot1).style.backgroundColor = "rgba(156, 23, 37,0.753)";
                 document.getElementById(slot2).style.backgroundColor = "rgba(156, 23, 37,0.753)";
@@ -291,7 +328,7 @@ function refreshDisplay() {
         let surfaceContent = "";
 
         for (let i = 0; i <= 100; i++) {
-            surfaceContent += `<div class="grid-item" id="surface2_item_ ` + (i) + `" onclick="select2(event)"></div>`;
+            surfaceContent += `<div class="grid-item" id="`+(i)+`" onclick="select2(event)"></div>`;
         }
 
         surface2.innerHTML = surfaceContent;
@@ -300,8 +337,94 @@ function refreshDisplay() {
     }
 }
 
-//Für Malte um den Bot einzubinden: Hat der Spieler durch seine Eingabe einen Treffer gelandet?
-//elementId ist die eindeutige Identifizierung des Feldes.
-function gotHit(elementId) {
+
+function gotHit(currelementId) {
+    let found = false;
+    console.log(currelementId);
+    console.log(gegnerischeSchiffe.indexOf(currelementId));
+    for (let i = 0; i < gegnerischeSchiffe.length; i++) {
+        for (let j = 0; j < gegnerischeSchiffe[i].length; j++) {
+            if (gegnerischeSchiffe[i][j] == currelementId) {
+                console.log(gegnerischeSchiffe[i][j]);
+                return true;
+            }
+        }
+    }
+
+}
+
+let id;
+
+function translate(arr){
+    id = (arr[0] * 10) + (arr[1]);
+    console.log(id);
+    return id;
+
+}
+function botHit(){
+
+  let nextShot = translate(shotAtNextField(false)); 
+  let SLOTelementId = "surface_item_ "+ nextShot;
+
+        document.getElementById(SLOTelementId).style.backgroundColor = "grey";
+
+  let again;
+  let allUsedItems = size2_ship1.concat(size2_ship2, size2_ship3, size2_ship4, size3_ship1, size3_ship2, size3_ship3, size4_ship1, size4_ship2, size5_ship1);
+
+    if (allUsedItems.indexOf(nextShot) != -1) {
+        console.log("BRO HAS HIT");
+        fieldHasBeenShot.push(nextShot);
+        again = nextShot;
+        console.log(again);
+        if(isShipdestroyed(nextShot) == true){
+            console.log("BOT has destroyed Ship")
+            botHit();
+        }
+        while(allUsedItems.indexOf(again) != -1){
+            console.log(reapeadcount);
+            console.log("BRO HAS HIT AGAIN")
+            again = shotAtNextField(true); 
+            console.log(again);
+            again = translate(again);
+            let SLOTelementId = "surface_item_ "+ again;
+            document.getElementById(SLOTelementId).style.backgroundColor = "grey";
+            fieldHasBeenShot.push(nextShot);
+            if(isShipdestroyed(nextShot) == true){
+                console.log("BOT has destroyed Ship")
+                botHit();
+            }
+        }
+        
+    }
+}
+function isShipdestroyed(elementIDofShipPart){
+    let serachShip;
+    if(size2_ship1.indexOf(elementIDofShipPart) != -1){
+        serachShip = size2_ship1;
+    }else if(size2_ship2.indexOf(elementIDofShipPart) != -1){
+        serachShip = size2_ship2;
+    }else if(size2_ship3.indexOf(elementIDofShipPart) != -1){
+        serachShip = size2_ship3;
+    }else if(size2_ship4.indexOf(elementIDofShipPart) != -1){
+        serachShip = size2_ship4;
+    }else if(size3_ship1.indexOf(elementIDofShipPart) != -1){
+        serachShip = size3_ship1;
+    }else if(size3_ship2.indexOf(elementIDofShipPart) != -1){
+        serachShip = size3_ship2;
+    }else if(size3_ship3.indexOf(elementIDofShipPart) != -1){
+        serachShip = size3_ship3;
+    }else if(size4_ship1.indexOf(elementIDofShipPart) != -1){
+        serachShip = size4_ship1;
+    }else if(size4_ship2.indexOf(elementIDofShipPart) != -1){
+        serachShip = size4_ship2;
+    }else if(size5_ship1.indexOf(elementIDofShipPart) != -1){
+        serachShip = size5_ship1;
+    }else{
+        return false
+    }
+
+    let findShip  = serachShip.every(r=> fieldHasBeenShot.includes(r))
+    
+    return findShip;
 
 }
