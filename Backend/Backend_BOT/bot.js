@@ -60,7 +60,6 @@ function clicky(){
     console.log(SeedMap);
     console.log();
 
-  // Beispielaufruf:
   
   
 
@@ -68,6 +67,7 @@ function clicky(){
 // Generation der gegnerischen Schiffe
 let schiffPositionen;
 function generiereGegnerischeSchiffe() {
+  
   schiffPositionen = [];
     let schiffGroessen = [5, 4, 4, 3, 3, 3, 2, 2, 2, 2]; // Größen der Schiffe
   
@@ -105,7 +105,7 @@ function generiereGegnerischeSchiffe() {
   function istPlatzVerfuegbar(startFeld, schiffGroesse, schritt) {
     var endFeld = startFeld + (schiffGroesse - 1) * schritt;
   
-    if (endFeld > 100) {
+    if (endFeld > 99) {
       return false;
     }
   
@@ -132,6 +132,17 @@ function generiereGegnerischeSchiffe() {
 
 // Generation der Schüsse gegen den Spieler
 function shotAtNextField(isHit){
+  let counter = 0;
+  for (let i = 0; i < SeedMap.length; i++) {
+    for (let j = 0; j < SeedMap[i].length; j++) {
+        if(SeedMap[i][j] == true){
+            counter++;
+        }
+    }
+}
+if(counter >= 99){
+  document.getElementById("outputfromgame").innerHTML = "YOU LOST";
+}
     if(isHit == false){
         let highest = -1;
         for (let i = 0; i < 10; i++) {
@@ -148,6 +159,9 @@ function shotAtNextField(isHit){
                     }
                 }
             }
+        }
+        if(SeedMap[x][y] == true){
+          shotAtNextField(false);
         }
         SeedMap[x][y] = true;
 
@@ -167,6 +181,10 @@ function shotAtNextField(isHit){
                 let combi = x +" + " + y;
                 
                 //console.log(combi);
+                if(SeedMap[x][y] == true){
+                  shotAtNextField(false);
+                }
+                SeedMap[x][y] = true;
                 reapeadcount = reapeadcount+1;
                 Return[0] = y;
                 Return[1] = x;
@@ -187,6 +205,10 @@ function shotAtNextField(isHit){
                 x= x+1
                 let combi = x +" + " + y;
                 //console.log(combi);
+                if(SeedMap[x][y] == true){
+                  shotAtNextField(false);
+                }
+                SeedMap[x][y] = true;
                 reapeadcount = reapeadcount+1;
                 Return[0] = y;
                 Return[1] = x;
@@ -206,6 +228,10 @@ function shotAtNextField(isHit){
                 y= y-1
                 let combi = x +" + " + y;
                // console.log(combi);
+               if(SeedMap[x][y] == true){
+                shotAtNextField(false);
+              }
+              SeedMap[x][y] = true;
                 reapeadcount = reapeadcount+1;
                 Return[0] = y;
                 Return[1] = x;
@@ -224,6 +250,10 @@ function shotAtNextField(isHit){
                 y= y+1
                 let combi = x +" + " + y;
                 //console.log(combi);
+                if(SeedMap[x][y] == true){
+                  shotAtNextField(false);
+                }
+                SeedMap[x][y] = true;
                 reapeadcount = reapeadcount+1;
                 Return[0] = y;
                 Return[1] = x;
@@ -278,6 +308,9 @@ function shotAtNextField(isHit){
                     }
                 }
             }
+        }
+        if(SeedMap[x][y] == true){
+          shotAtNextField(false);
         }
         SeedMap[x][y] = true;
         let combi = x +" + " + y

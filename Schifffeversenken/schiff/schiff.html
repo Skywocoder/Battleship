@@ -6,33 +6,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sprite</title>
   <link rel="stylesheet" href="sprite.css">
-  
-  <script src="../../Backend/Backend/mechanic.js"></script>  
-  <script src="../../Backend/Backend_BOT/bot.js"></script>  
+
+  <script src="../../Backend/Backend/mechanic.js"></script>
+  <script src="../../Backend/Backend_BOT/bot.js"></script>
 </head>
 
 <body>
+  <canvas id="canvas"></canvas>
   <h2>Battleship</h2>
-    <a id="output" href="./desc.html">
-      How to play the game
-    </a>
     <br><br>
-    <a id="outputfromgame">
-
-    </a>
+    
+      <div id="resultBox"><a id="outputfromgame"></a></div>
+    
 
     <div class="flex-container">
       <div id="surface">
       </div>
 
-      <div id="surface2">  
+      <div id="surface2">
       </div>
 
     </div>
 
     <div id="display">
-      <p id="display_content"> Verfügbare Schiffe: 4 U-Boot(e) | 3 Zerstörer | 2 Flaggschniff(e) | 1 Flugzeugträger </p>
+      <p> Verfügbare Schiffe: </p> 4 <img src="../../Schiffmodelle/U-Boot1-2er.png" alt="noSource" height="52vw"> <br> 3 <img src="../../Schiffmodelle/Zerstörer1-3er.png" alt="noSource" height="52vw"> <br>  2 <img src="../../Schiffmodelle/Flaggschiff1-4er.png" alt="noSource" height="52vw"> <br> 1 <img src="../../Schiffmodelle/Flugzeugträger2-5er.png" alt="noSource" height="52vw"> </p>
     </div>
+</canvas>
 </body>
 
 </html>

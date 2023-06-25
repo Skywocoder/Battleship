@@ -6,17 +6,27 @@ body {
   font-family: 'Raleway', sans-serif;
   font-weight: bold;
   color: rgb(0, 0, 0);
-  background-image: url("./img/back.jpeg");
+  background-color: rgb(55, 79, 107);
   background-size: cover;
   background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+canvas#canvas {
+  display: block;
 }
 
 h2 {
   font-size: xx-large;
+  position: absolute;
+  top:5%;
+  right: 63%;
   text-align: center;
 }
 
 .flex-container {
+  position: absolute;
+  top:10%;
   margin-top: 0;
   display: flex;
   margin-left: 15vw;
@@ -62,7 +72,9 @@ h2 {
 }
 
 
-#output {
+a {
+  position: absolute;
+  top:10%;
   text-align: right;
   margin-left: 66vw;
   margin-bottom: 0;
@@ -90,12 +102,38 @@ img {
 
 #display {
   position: absolute;
-  left: 42%;
+  left:78%;
+  top:40%;
   transform: translate(-50%, -50%);
   width: 50vw;
-  display: flex;
+  display:block;
   font-family: Arial, sans-serif;
   font-size: 1vw;
   color: white;
   transform: 2s;
+}
+
+#resultBox{
+  display: block;
+  padding: 2vw;
+  background-image: linear-gradient(
+    to right,
+    #462523 0,
+           #cb9b51 22%, 
+    #f6e27a 45%,
+    #f6f2c0 50%,
+    #f6e27a 55%,
+    #cb9b51 78%,
+    #462523 100%
+    );
+    box-shadow: 4px;
+  border: 0.5vw black solid;
+  border-radius: 3vw;
+  width: 5vw;
+  position: absolute;
+
+}
+#resultBox:a{
+  text-align: center;
+  text-shadow: 4px;
 }
